@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Security Check') {
             steps {
-		dependencyCheck additionalArguments: '--scan=. --format=html', odcInstallation: 'OWAPS-Dependency-Check'
+		dependencyCheck additionalArguments: '--scan=. --format=HTML', odcInstallation: 'OWAPS-Dependency-Check'
                 echo 'Security Check'
             }
         }
