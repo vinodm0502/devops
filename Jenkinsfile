@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Quality Check') {
             steps {
-                echo "jobparm $(JobName)"
+                echo 'jobparm $(JobName)'
                 echo 'Quality Check'
             }
         }
