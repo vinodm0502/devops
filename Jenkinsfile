@@ -27,7 +27,7 @@ pipeline {
 		}
 	}
 	stage('Kill Previous Depliyment') {
-		step {
+		steps {
 			catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
 				sh "fuser -k 8083/tcp"
 			}
