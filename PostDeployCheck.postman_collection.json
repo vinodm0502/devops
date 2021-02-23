@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "a994730e-9291-4fe8-8d7a-ae8cf70246fa",
+		"name": "PostDeployCheck",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://vlmaz2021tn8.fisdev.local:8083/student/allstudent",
+					"protocol": "http",
+					"host": [
+						"vlmaz2021tn8",
+						"fisdev",
+						"local"
+					],
+					"port": "8083",
+					"path": [
+						"student",
+						"allstudent"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
