@@ -20,15 +20,15 @@ pipeline {
                 echo 'Security Check'
             }
         }
-		stage('Build Push App') {
-			steps {
-				sh "mvn clean install"
-				echo 'App push done'
-			}
+	stage('Build Push App') {
+		steps {
+			sh "mvn clean install"
+			echo 'App push done'
 		}
+	}
         stage('Deploy App') {
             steps {
-		sh "java -jar target/spring-boot-rest-2-0.0.1-SNAPSHOT.jar &"
+		sh "JENKINS_NODE_COOKIE=dontKillMe nohup java -jar target/spring-boot-rest-2-0.0.1-SNAPSHOT.jar &"
                 echo 'Deploy App'
             }
         }
