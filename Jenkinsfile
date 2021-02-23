@@ -41,7 +41,7 @@ pipeline {
         }
         stage('Post Deployment Check') {
             steps {
-                sh "/usr/local/bin/newman run PostDeployCheck.postman_collection.jsoon -r html,cli"
+                sh "/usr/local/bin/newman run PostDeployCheck.postman_collection.json -r html,cli"
                 echo 'Post Deployment Check'
             }
         }
