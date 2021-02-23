@@ -26,6 +26,12 @@ pipeline {
 			echo 'App push done'
 		}
 	}
+	    stage('Kill Previous Depliyment') {
+		step {
+			catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS')
+			sh "fuser -k 8083/tcp"
+		}
+	}
         stage('Deploy App') {
             steps {
 		sh "JENKINS_NODE_COOKIE=dontKillMe nohup java -jar target/spring-boot-rest-2-0.0.1-SNAPSHOT.jar &"
