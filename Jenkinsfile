@@ -26,10 +26,10 @@ pipeline {
 			echo 'App push done'
 		}
 	}
-	    stage('Kill Previous Depliyment') {
+	stage('Kill Previous Depliyment') {
 		step {
 			catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
-			sh "fuser -k 8083/tcp"
+				sh "fuser -k 8083/tcp"
 			}
 		}
 	}
