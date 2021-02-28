@@ -14,8 +14,8 @@ pipeline {
                 echo 'Quality Check'
             }
         }
-	node('SecChk') {
-            stage('Security Check') {
+	stage('Security Check') {
+            node('SecChk') {
             	steps {
 			dependencyCheck additionalArguments: '--scan=. --format=HTML', odcInstallation: 'OWAPS-Dependency-Check'
                 	echo 'Security Check'
