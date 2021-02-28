@@ -14,12 +14,14 @@ pipeline {
                 echo 'Quality Check'
             }
         }
-        stage('Security Check') {
-            steps {
-		dependencyCheck additionalArguments: '--scan=. --format=HTML', odcInstallation: 'OWAPS-Dependency-Check'
-                echo 'Security Check'
+	node('SecChk') {
+            stage('Security Check') {
+            	steps {
+			dependencyCheck additionalArguments: '--scan=. --format=HTML', odcInstallation: 'OWAPS-Dependency-Check'
+                	echo 'Security Check'
+            	}
             }
-        }
+	}
 	stage('Build Push App') {
 		steps {
 			sh "mvn clean install"
